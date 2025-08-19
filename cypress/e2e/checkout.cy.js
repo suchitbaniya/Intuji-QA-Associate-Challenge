@@ -16,7 +16,7 @@ describe('Checkout Flow with Fake Payment', () => {
   });
 
   beforeEach(() => {
-    cy.visit('/view_cart'); // ensure cart page entry point
+    cy.visit('/view_cart'); 
   });
 
   it('Proceeds to checkout and completes fake payment', () => {

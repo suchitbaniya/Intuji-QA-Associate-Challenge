@@ -26,7 +26,6 @@
 
 import { faker } from '@faker-js/faker';
 
-// -------- Helpers --------
 Cypress.Commands.add('dataQa', (value) => cy.get(`[data-qa="${value}"]`));
 
 // Save and restore session using cookies + localStorage snapshot
@@ -44,7 +43,7 @@ Cypress.Commands.add('restoreLocalStorage', () => {
   cy.get('@currentAliases').then(() => {});
 });
 
-// -------- Auth commands --------
+
 Cypress.Commands.add('registerUser', () => {
   const user = {
     name: faker.person.fullName(),
@@ -126,7 +125,7 @@ Cypress.Commands.add('logout', () => {
   cy.contains('Login to your account').should('be.visible');
 });
 
-// -------- Product & Cart commands --------
+//Product & Cart commands
 Cypress.Commands.add('addToCartByName', (name) => {
   cy.visit('/products');
   cy.contains('.productinfo', name, { matchCase: false })
@@ -142,7 +141,7 @@ Cypress.Commands.add('verifyCartHasAtLeast', (n) => {
   cy.get('.cart_description').should('have.length.at.least', n);
 });
 
-// -------- Intercepts (optional if API exists) --------
+// APi intercept
 Cypress.Commands.add('interceptProducts', () => {
   cy.intercept('GET', '**/api/**products**').as('getProducts');
 });

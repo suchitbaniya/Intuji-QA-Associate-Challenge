@@ -18,7 +18,7 @@ describe('Cart and Quantity Management', () => {
     });
   });
 
-  // ✅ Ensure cart always has items before each test
+ 
   beforeEach(() => {
     cart.go();
 

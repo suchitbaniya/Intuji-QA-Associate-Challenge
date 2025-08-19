@@ -33,7 +33,7 @@ describe('Product Browsing & Filtering', () => {
   it('Opens first product and verifies detail info', { retries: 2 }, () => {
     prod.go();
     
-    // Debug: Log how many products are found
+    // store how many products are found
     cy.get('.productinfo').then(($products) => {
       cy.log(`Found ${$products.length} products`);
     });
