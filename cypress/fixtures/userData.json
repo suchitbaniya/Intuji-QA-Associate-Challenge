@@ -1,0 +1,17 @@
+{
+  "name": "Arturo Pfannerstill",
+  "email": "Dylan.Hamill@example.com",
+  "password": "Test@1234",
+  "address": {
+    "firstName": "Nash",
+    "lastName": "Spinka-Ferry",
+    "company": "Bayer, Ryan and Gislason",
+    "address1": "354 Jevon Coves",
+    "address2": "Suite 228",
+    "country": "India",
+    "state": "Illinois",
+    "city": "Aliceport",
+    "zipcode": "48581-3648",
+    "mobile": "1-649-526-3479 x83309"
+  }
+}
