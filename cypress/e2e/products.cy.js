@@ -43,7 +43,7 @@ describe('Product Browsing & Filtering', () => {
     // Additional detailed verifications
     cy.get('.product-information').within(() => {
       cy.get('h2').should('be.visible').and('not.be.empty');
-      cy.get('.product-price').should('be.visible');
++     cy.get('span span').should('be.visible').and('contain.text', 'Rs.');
       cy.contains('Availability:').should('be.visible');
       cy.contains('Condition:').should('be.visible');
       cy.contains('Brand:').should('be.visible');

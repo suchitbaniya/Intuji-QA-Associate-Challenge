@@ -2,14 +2,17 @@ export class ProductPage {
   get el() {
     return {
       productCards: () => cy.get('.productinfo'),
-      firstProductLink: () => cy.get('.productinfo a').first(),
-      // Updated selector for product information section
-      productInfo: () => cy.get('.product-details').should('exist'),
+      // Corrected selector for the "View Product" link
+      firstProductLink: () => cy.get('.choose a').first(),
+      // Product details section
+      productInfo: () => cy.get('.product-information'),
       productName: () => cy.get('.product-information h2'),
       productPrice: () => cy.get('.product-information span span'),
       addToCartBtn: () => cy.get('.cart'),
-      addToCartBtnFor: (name) => 
-        cy.contains('.productinfo', new RegExp(name, 'i')).find('a:contains("Add to cart")'),
+      addToCartBtnFor: (name) =>
+        cy.contains('.productinfo', new RegExp(name, 'i'))
+          .parents('.product-image-wrapper')
+          .find('a:contains("Add to cart")'),
       continueShopping: () => cy.contains('Continue Shopping')
     };
   }
@@ -26,17 +29,17 @@ export class ProductPage {
   }
 
   openFirstProductAndVerify() {
-    // Click first product with retry and force options
-    this.el.firstProductLink().click({ force: true });
-    
+    // Click the "View Product" link for first product
+    this.el.firstProductLink().should('be.visible').click();
+
     // Verify product details page loads
     cy.url().should('include', '/product_details/');
-    
+
     // Wait for product information to be visible
     this.el.productInfo().should('be.visible', { timeout: 10000 });
     this.el.productName().should('be.visible');
     this.el.productPrice().should('be.visible');
-    
+
     return this;
   }
 }
